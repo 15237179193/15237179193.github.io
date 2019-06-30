@@ -15,21 +15,13 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="theme-version" content="1.2.3">
     <meta name="root" content="/">
-    <link rel="dns-prefetch" href="http://yoursite.com">
+    <link rel="dns-prefetch" href="http://blog.monty.site">
     <!--SEO-->
 
     <meta name="keywords" content>
 
 
-    <meta name="description" content="@[toc]
-项目环境
-PHP语言CI(codeigniter)3.x框架
-
-测试环境：windows，发布环境：CentOS7
-
-
-注册成为支付宝开发者支付宝PC电脑支付文档传送门：点这里
-申...">
+    <meta name="description" content="本文是基于PHP框架CI3.X开发的接入支付宝PC网站支付流程步骤，是从注册成为支付宝支付开发者的沙箱环境，到正式支付服务签约，一级接口业务开发，和开发过程中遇到的问题，还有相应的解决方案。旨在...">
 
 
 
@@ -41,7 +33,7 @@ PHP语言CI(codeigniter)3.x框架
     <!--Title-->
 
 
-<title>alipay-pc | 丁丁丁梦涛的个人博客</title>
+<title>基于CI（codeigniter）3框架接入支付宝PC网站支付详细步骤 | 丁丁丁梦涛的个人博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="丁丁丁梦涛的个人博客" type="application/atom+xml">
@@ -108,7 +100,7 @@ PHP语言CI(codeigniter)3.x框架
                     <span class="sr-only"></span>
                         <i class="fa fa-bars"></i>
                     </span>
-                    <a class="navbar-brand" href="http://yoursite.com">丁丁丁梦涛的个人博客</a>
+                    <a class="navbar-brand" href="http://blog.monty.site">丁丁丁梦涛的个人博客</a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="menu">
@@ -146,9 +138,9 @@ PHP语言CI(codeigniter)3.x框架
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="alipay-pc">
+        <h1 id="基于CI（codeigniter）3框架接入支付宝PC网站支付详细步骤">
             
-	            alipay-pc
+	            基于CI（codeigniter）3框架接入支付宝PC网站支付详细步骤
             
         </h1>
         <div class="post-meta">
@@ -182,7 +174,9 @@ PHP语言CI(codeigniter)3.x框架
     </div>
     
     <div class="post-body post-content">
-        <p>@[toc]</p>
+        <p>本文是基于PHP框架CI3.X开发的接入支付宝PC网站支付流程步骤，是从注册成为支付宝支付开发者的沙箱环境，到正式支付服务签约，一级接口业务开发，和开发过程中遇到的问题，还有相应的解决方案。旨在记录开发过程，期望为初次接触支付宝支付的开发者提供一个思路。</p>
+<p><img src="'/images/alipay-sum.png'" alt="总览图"></p>
+<p>@[toc]</p>
 <h1 id="项目环境"><a href="#项目环境" class="headerlink" title="项目环境"></a>项目环境</h1><ul>
 <li><p>PHP语言CI(codeigniter)3.x框架</p>
 </li>
@@ -193,7 +187,7 @@ PHP语言CI(codeigniter)3.x框架
 <h2 id="申请成为开发者"><a href="#申请成为开发者" class="headerlink" title="申请成为开发者"></a>申请成为开发者</h2><ol>
 <li><p>支付宝扫码登录<a href="https://openhome.alipay.com/platform/home.htm" target="_blank" rel="noopener">蚂蚁金服开放平台</a>；</p>
 </li>
-<li><p>选择“开发中心=&gt;研发服务”，如图：<br><img src="'./../images/alipay-pc-01.png'" alt="在这里插入图片描述"> </p>
+<li><p>选择“开发中心=&gt;研发服务”，如图：<br><img src="https://img-blog.csdnimg.cn/20190629154248988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RtdDc0MjA1NTU5Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
 </li>
 <li><p>下载秘钥生成工具，传送门：<a href="https://docs.open.alipay.com/291/105971" target="_blank" rel="noopener">点这里</a><br> 注意：需要吧下载的文件放到非中文目录的目录下面才可以正常生成秘钥，否则，如果文件夹名称中包含中文，将会出现闪退情况。<br> <img src="https://img-blog.csdnimg.cn/2019062915591366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RtdDc0MjA1NTU5Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>同时，生工具同级目录下会生成公钥私钥文件，java语言选择私钥文件是rsa_private_key_pkcs8.pem，其他语言选择私钥文件是rsa_private_key.pem </p>
 </li>
